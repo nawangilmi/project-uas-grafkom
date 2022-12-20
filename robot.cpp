@@ -481,7 +481,7 @@ void MechTorso(char solid)
 #ifdef LIGHT
   SetMaterial(mat_specular2, mat_ambient2, mat_diffuse2, mat_shininess2);
 #endif
-  glColor3f(0.0, 0.0, 1.0);//torso blue color
+  glColor3f(0.0, 1.0, 1.0);//torso blue color
   Box(0.5, 0.6, 2.0, solid);
   glTranslatef(-1.5, 0.0, 0.0);
   Box(0.5, 0.6, 2.0, solid);
@@ -600,7 +600,7 @@ void VulcanGun(char solid)
 #ifdef LIGHT
   SetMaterial(mat_specular2, mat_ambient2, mat_diffuse2, mat_shininess2);
 #endif
-  glColor3f(0.0, 0.0, 1.0);//gun color in wireframe
+  glColor3f(0.0, 1.0, 1.0);//gun color in wireframe
 
   if (!solid) {
     gluQuadricDrawStyle(qobj, GLU_LINE);
@@ -681,7 +681,7 @@ void UpperLeg(char solid)
 #ifdef LIGHT
   SetMaterial(mat_specular2, mat_ambient2, mat_diffuse2, mat_shininess2);
 #endif
-  glColor3f(0.0, 0.0, 1.0);//leg joints grey
+  glColor3f(0.0, 1.0, 1.0);//leg joints grey
   gluCylinder(qobj, 0.6, 0.6, 3.0, 16, 10);
 #ifdef LIGHT
   SetMaterial(mat_specular, mat_ambient, mat_diffuse, mat_shininess);
@@ -721,7 +721,7 @@ void Foot(char solid)
   SetMaterial(mat_specular2, mat_ambient2, mat_diffuse2, mat_shininess2);
 #endif
   // glColor3f(1.0, 0.0, 0.0);// color foot
-  glColor3f(0.0, 0.0, 1.0);// color foot
+  glColor3f(0.0, 1.0, 1.0);// color foot
   glRotatef(90.0, 1.0, 0.0, 0.0);
   Octagon(1.5, 0.6, solid);
   glRotatef(-90.0, 1.0, 0.0, 0.0);
@@ -887,7 +887,7 @@ void Enviro(char solid)
   glColor3f(1.0, 1.0, 0.0);//out line of the walking path
   Box(20.0, 0.5, 30.0, solid);
   SetMaterial(mat_specular4, mat_ambient3, mat_diffuse2, mat_shininess);
-  glColor3f(1.0, 0.0, 0.0);//the surrounding area color (warna gedung di wireframe)
+  glColor3f(0.0, 1.0, 0.0);//the surrounding area color (warna gedung di wireframe)
   glTranslatef(0.0, 0.0, -10.0);
   for (j = 0; j < 6; j++) {
     for (i = 0; i < 2; i++) {
@@ -940,6 +940,7 @@ void lighting(void)
   glRotatef((GLfloat) lightturn, 0.0, 1.0, 0.0);
   glRotatef(0.0, 1.0, 0.0, 0.0);
 #endif
+
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
   glEnable(GL_NORMALIZE);
@@ -951,6 +952,7 @@ void lighting(void)
 
   glTranslatef(0.0, 0.0, 2.0);
   glDisable(GL_LIGHTING);
+  glColor3f(1.0, 1.0, 0.0);
   Box(0.1, 0.1, 0.1, 0);
   glEnable(GL_LIGHTING);
 }
@@ -1068,8 +1070,9 @@ void FireCannon3(void) {
 
 void display(void)
 {
-     glClearColor(0.0, 1.0, 1.0, 1.0); //blue
-    // glClearColor(0.0, 0.0, 0.0, 0.0);
+    //  glClearColor(0.0, 1.0, 1.0, 1.0); //blue
+    // glClearColor(0.0, 0.0, 0.0, 0.0); // black
+    glClearColor(0.137255, 0.137255 , 0.556863, 1.0); // dark blue
 // glClearColor(1.0, 1.0, 1.0, 1.0); // white
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glEnable(GL_DEPTH_TEST);
